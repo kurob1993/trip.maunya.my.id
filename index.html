@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tripya - Jasa Trip Travel Terbaik</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-blue-600">Maunya Trip</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-blue-600 transition">Beranda</a>
+                    <a href="#packages" class="nav-link text-gray-700 hover:text-blue-600 transition">Paket</a>
+                    <a href="#destinations" class="nav-link text-gray-700 hover:text-blue-600 transition">Destinasi</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-blue-600 transition">Tentang</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 transition">Kontak</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 py-2 space-y-3">
+                <a href="#home" class="block nav-link text-gray-700 hover:text-blue-600">Beranda</a>
+                <a href="#packages" class="block nav-link text-gray-700 hover:text-blue-600">Paket</a>
+                <a href="#destinations" class="block nav-link text-gray-700 hover:text-blue-600">Destinasi</a>
+                <a href="#about" class="block nav-link text-gray-700 hover:text-blue-600">Tentang</a>
+                <a href="#contact" class="block nav-link text-gray-700 hover:text-blue-600">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="relative z-10 text-center text-white px-4">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">Petualangan Anda Dimulai Di Sini</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Jelajahi dunia dengan paket trip terbaik dan harga terjangkau</p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <button class="search-trip-btn bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition transform hover:scale-105">
+                    <i class="fas fa-search mr-2"></i>Cari Trip
+                </button>
+                <button class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition">
+                    Lihat Paket
+                </button>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-white text-3xl"></i>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="bg-white py-12 shadow-md">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="bg-gray-50 rounded-xl p-6 shadow-lg">
+                <form id="search-form" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Destinasi</label>
+                        <input type="text" id="destination" placeholder="Cari destinasi..." class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal</label>
+                        <input type="date" id="date" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Durasi</label>
+                        <select id="duration" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="">Semua Durasi</option>
+                            <option value="1">1 Hari</option>
+                            <option value="2-3">2-3 Hari</option>
+                            <option value="4-7">4-7 Hari</option>
+                            <option value="7+">7+ Hari</option>
+                        </select>
+                    </div>
+                    <div class="flex items-end">
+                        <button type="submit" class="w-full bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+                            <i class="fas fa-search mr-2"></i>Cari
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Paket Trip Populer</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Pilihan paket trip terbaik dengan harga terjangkau</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Package 1 -->
+                <div class="package-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition transform hover:scale-105">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1533105079780-fa29768540b3?ixlib=rb-4.0.3')"></div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">3 Hari 2 Malam</span>
+                            <div class="text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-600 text-sm ml-1">(4.5)</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Lombok Paradise</h3>
+                        <p class="text-gray-600 mb-4">Jelajahi keindahan pantai-pantai eksotis Lombok dengan fasilitas lengkap</p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-users mr-2"></i>
+                            <span class="text-sm">2-6 orang</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-3xl font-bold text-blue-600">Rp 2.5jt</span>
+                                <span class="text-gray-500 text-sm">/orang</span>
+                            </div>
+                            <button class="book-btn bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition" data-package="Lombok Paradise">
+                                Pesan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package 2 -->
+                <div class="package-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition transform hover:scale-105">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?ixlib=rb-4.0.3')"></div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">4 Hari 3 Malam</span>
+                            <div class="text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="text-gray-600 text-sm ml-1">(5.0)</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Bali Adventure</h3>
+                        <p class="text-gray-600 mb-4">Petualangan seru di Bali dengan kegiatan rafting dan trekking</p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-users mr-2"></i>
+                            <span class="text-sm">4-8 orang</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-3xl font-bold text-blue-600">Rp 3.2jt</span>
+                                <span class="text-gray-500 text-sm">/orang</span>
+                            </div>
+                            <button class="book-btn bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition" data-package="Bali Adventure">
+                                Pesan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="package-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition transform hover:scale-105">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1501555088652-021faa106b9b?ixlib=rb-4.0.3')"></div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">2 Hari 1 Malam</span>
+                            <div class="text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="text-gray-600 text-sm ml-1">(4.0)</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Yogyakarta Heritage</h3>
+                        <p class="text-gray-600 mb-4">Eksplorasi budaya dan sejarah Yogyakarta dengan guide profesional</p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-users mr-2"></i>
+                            <span class="text-sm">2-10 orang</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-3xl font-bold text-blue-600">Rp 1.8jt</span>
+                                <span class="text-gray-500 text-sm">/orang</span>
+                            </div>
+                            <button class="book-btn bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition" data-package="Yogyakarta Heritage">
+                                Pesan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section id="destinations" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Destinasi Populer</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Temukan destinasi impian Anda</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="destination-card group relative overflow-hidden rounded-xl cursor-pointer">
+                    <div class="h-64 bg-cover bg-center transition transform group-hover:scale-110" style="background-image: url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?ixlib=rb-4.0.3')"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h3 class="text-xl font-bold">Bali</h3>
+                        <p class="text-sm">42 trips available</p>
+                    </div>
+                </div>
+                
+                <div class="destination-card group relative overflow-hidden rounded-xl cursor-pointer">
+                    <div class="h-64 bg-cover bg-center transition transform group-hover:scale-110" style="background-image: url('https://images.unsplash.com/photo-1533105079780-fa29768540b3?ixlib=rb-4.0.3')"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h3 class="text-xl font-bold">Lombok</h3>
+                        <p class="text-sm">28 trips available</p>
+                    </div>
+                </div>
+                
+                <div class="destination-card group relative overflow-hidden rounded-xl cursor-pointer">
+                    <div class="h-64 bg-cover bg-center transition transform group-hover:scale-110" style="background-image: url('https://images.unsplash.com/photo-1501555088652-021faa106b9b?ixlib=rb-4.0.3')"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h3 class="text-xl font-bold">Yogyakarta</h3>
+                        <p class="text-sm">35 trips available</p>
+                    </div>
+                </div>
+                
+                <div class="destination-card group relative overflow-hidden rounded-xl cursor-pointer">
+                    <div class="h-64 bg-cover bg-center transition transform group-hover:scale-110" style="background-image: url('https://images.unsplash.com/photo-1524492442939-7c29e80e2188?ixlib=rb-4.0.3')"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h3 class="text-xl font-bold">Raja Ampat</h3>
+                        <p class="text-sm">15 trips available</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-800 mb-6">Mengapa Memilih Tripya?</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-shield-alt text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Aman & Terpercaya</h3>
+                                <p class="text-gray-600">Trip dilengkapi dengan asuransi dan guide profesional</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-green-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-tag text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Harga Terbaik</h3>
+                                <p class="text-gray-600">Dapatkan penawaran menarik dan harga yang kompetitif</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-headset text-purple-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Layanan 24/7</h3>
+                                <p class="text-gray-600">Customer support siap membantu kapan saja</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-8 text-white">
+                    <h3 class="text-2xl font-bold mb-6">Statistik Kami</h3>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold mb-2 counter" data-target="5000">0</div>
+                            <p class="text-lg">Pelanggan Puas</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold mb-2 counter" data-target="150">0</div>
+                            <p class="text-lg">Trip Tersedia</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold mb-2 counter" data-target="50">0</div>
+                            <p class="text-lg">Destinasi</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold mb-2 counter" data-target="98">0</div>
+                            <p class="text-lg">% Kepuasan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Hubungi Kami</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Ada pertanyaan? Tim kami siap membantu Anda</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap</label>
+                            <input type="text" id="contact-name" required class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" id="contact-email" required class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Pesan</label>
+                            <textarea id="contact-message" rows="4" required class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-phone text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Whatsapp</h3>
+                                <p class="text-gray-600"> +62 851-7671-2394</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-envelope text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Email</h3>
+                                <p class="text-gray-600">maunyajastip@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-map-marker-alt text-purple-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Alamat</h3>
+                                <p class="text-gray-600">Jakarta, Indonesia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 text-blue-400">Trip.Maunya.My.Id</h3>
+                    <p class="text-gray-400">Jasa trip travel terpercaya untuk petualangan impian Anda</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-youtube text-xl"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Layanan</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Domestik</a></li>
+                        <li><a href="#" class="hover:text-white transition">Internasional</a></li>
+                        <li><a href="#" class="hover:text-white transition">Paket Group</a></li>
+                        <li><a href="#" class="hover:text-white transition">Private Trip</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Perusahaan</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Tentang Kami</a></li>
+                        <li><a href="#" class="hover:text-white transition">Karir</a></li>
+                        <li><a href="#" class="hover:text-white transition">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition">Partner</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Dapatkan penawaran terbaik langsung di inbox Anda</p>
+                    <form id="newsletter-form" class="flex">
+                        <input type="email" placeholder="Email Anda" class="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-l-lg focus:outline-none focus:border-blue-500">
+                        <button type="submit" class="bg-blue-600 px-4 py-2 rounded-r-lg hover:bg-blue-700 transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Trip.Maunya.My.Id. All rights reserved. Made with ❤️ in Indonesia</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div id="booking-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center h-full p-4">
+            <div class="bg-white rounded-xl max-w-md w-full p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold">Pesan Trip</h3>
+                    <button id="close-modal" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <form id="booking-form" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Paket</label>
+                        <input type="text" id="package-name" readonly class="w-full px-4 py-2 border rounded-lg bg-gray-50">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Nama</label>
+                        <input type="text" id="booking-name" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                        <input type="email" id="booking-email" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Telepon</label>
+                        <input type="tel" id="booking-phone" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Jumlah Peserta</label>
+                        <input type="number" id="booking-guests" min="1" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal Trip</label>
+                        <input type="date" id="booking-date" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Catatan</label>
+                        <textarea id="booking-notes" rows="3" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+                        Konfirmasi Pemesanan
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
